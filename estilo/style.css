@@ -1,1 +1,53 @@
-
+@font-face{
+	font-family: "poppins";
+	src: url('poppins.ttf');
+}
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "poppins", sans-serif;
+	text-transform: capitalize;
+}
+body{
+	background-color: pink;
+}
+/*inicio da estilização do game*/
+main{
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.game{
+	width: 300px;
+	margin: 10px;
+	background-color: #ffb0be;
+	border-radius: 8px;
+	padding: 15px;
+}
+.box2{
+	background-color: #ffb0be;
+	padding: 15px;
+	border-radius: 8px;
+}
+#questao{
+	margin:4px 0;
+}
+input{
+	border: none;
+	border-radius: 4px;
+	outline: none;
+	padding: 3px;
+	width:200px;
+	height: 35px;
+}
+#btn{
+	border: inherit;
+	padding: 3px;
+	border-radius: 3px;
+	width:40px;
+	height: 35px;
+	cursor: pointer;
+}
