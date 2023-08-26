@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<title>Charada</title>
+	<link rel="stylesheet" href="estilo/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head> 
+<body>
+	<main>
+		<div class="game">
+			<div class="box">
+				<h2 id="titulo"></h2>
+				<h4 id="questao">Descubra as respostas das advinhas, digite "ok" para começar</h4>
+			</div>
+			<div id="tent">
+				<h6 id="tentativas"></h6>
+			</div>
+			<div>
+				<input type="text" name="resposta" autocomplete="off">
+				<button id="btn" onclick="iniciar()">click</button>
+			</div>
+			<div>
+				<h5 id="tituloDica"></h5>
+				<p id="dica"></p>
+				<p id="dica2"></p>
+				<p id="dica3"></p>
+			</div>
+			<p id="errou"></p>
+			<p id="acertou"></p>
+			<p id="erro"></p>
+		</div>
+		<div class="box2">
+			<h2 id="howToPlay">Como jogar?</h2>
+			<h5 id="one">- Digite a resposta da advinha no campo ao lado</h5>
+			<h5 id="two">- A cada dia uma nova adivinha será gerada</h5>
+			<h5 id="tree">- Dicas aparecem conforme a dificuldade da charada</h5>
+		</div>
+	</main>
+		<noscript>
+			Você precisa habilitar o javascript para utilizar este APP
+		</noscript>
+	<script src="javascript/script.js"></script>
+</body>
+</html>
