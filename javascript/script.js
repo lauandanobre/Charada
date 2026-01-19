@@ -233,6 +233,30 @@ window.addEventListener("keydown", (event) => {
 });
 x = parseInt(Math.random() * 12);
 i = parseInt(Math.random() * 100);
+function abrirComoJogar() {
+  document.getElementById("modal").classList.remove("hidden");
+}
+function fecharComoJogar() {
+  document.getElementById("modal").classList.add("hidden");
+}
+function iniciarJogo() {
+  if (cont == 0) {
+    cont = 1;
+    jogoIniciou = true;
+    document.getElementById("titulo").innerHTML = "O que é, o que é?";
+    questao.innerHTML = advinha[i];
+    document.getElementById("tentativas").innerHTML = "Tentativas: 0";
+    let dica = document.getElementById("dica");
+    let dica2 = document.getElementById("dica2");
+    let dica3 = document.getElementById("dica3");
+    dica.innerHTML =
+      "A primeira letra da palavra é " + resposta[i].substr(0, 1);
+    dica2.innerHTML = "A ultima letra da palavra é " + resposta[i].slice(-1);
+    dica3.innerHTML = "A palavra tem " + resposta[i].length + " letras";
+  }
+}
+//Iniciar o jogo quando a página carrega
+window.addEventListener("load", iniciarJogo);
 function pegarData() {
   let data = new Date();
   let dia = String(data.getDate()).padStart(2, "0");
@@ -259,20 +283,15 @@ function iniciar() {
   let dica3 = document.getElementById("dica3");
   usuario = usuario.toLowerCase();
 
-  if (usuario == "ok" && cont == 0) {
+  if (cont == 0) {
     cont = 1;
     jogoIniciou = true;
-    //remover o passo a passo
-    document.querySelector(".box2").style.display = "none";
     //adicionar o painel principal
     titulo.innerHTML = "O que é, o que é?";
     questao.innerHTML = advinha[i];
     tent.innerHTML = "Tentativas: 0";
-  } else {
-    //Se a resposta não for "ok"
-    erro.innerHTML = "Insira uma resposta valida";
-    document.querySelector("input").value = "";
   }
+
   if (jogoIniciou == true) {
     document.querySelector("input").value = "";
     tentativas = tentativas + 1;
@@ -335,13 +354,13 @@ function iniciar() {
     }
   }
   if (zerarJogo == false) {
-	  dica.innerHTML ="A primeira letra da palavra é " + resposta[i].substr(0, 1); //primeira letra
+    dica.innerHTML =
+      "A primeira letra da palavra é " + resposta[i].substr(0, 1); //primeira letra
     dica2.innerHTML = "A ultima letra da palavra é " + resposta[i].slice(-1); //ultima letra
-	  dica3.innerHTML = "A palavra tem " + resposta[i].length + " letras"; //quant de letras
-  }
-  else{
-    dica.style = "display: none"
-    dica2.style = "display: none"
-	  dica3.style = "display: none"
+    dica3.innerHTML = "A palavra tem " + resposta[i].length + " letras"; //quant de letras
+  } else {
+    dica.style = "display: none";
+    dica2.style = "display: none";
+    dica3.style = "display: none";
   }
 }

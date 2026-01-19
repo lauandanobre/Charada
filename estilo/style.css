@@ -1,68 +1,134 @@
-@font-face{
-	font-family: "poppins";
-	src: url('poppins.ttf');
+@font-face {
+  font-family: "poppins";
+  src: url("poppins.ttf");
 }
-*{
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: "poppins", sans-serif;
-	text-transform: capitalize;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "poppins", sans-serif;
+  text-transform: capitalize;
 }
-body{
-	background-color: pink;
+body {
+  background-color: pink;
+}
+nav {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+}
+#btnHow {
+  background-color: #ffb0be;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+#btnHow:hover {
+  background-color: #ff99aa;
+  transform: scale(1.05);
+}
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+}
+.modal:not(.hidden) {
+  display: flex;
+}
+.modal.hidden {
+  display: none;
+}
+.modal-content {
+  background-color: #ffb0be;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.fechar {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #333;
+}
+.fechar:hover {
+  color: #000;
 }
 /*inicio da estilização do game*/
-main{
-	width: 100vw;
-	height: 100vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-#titulo{
-	text-align: center;
+#titulo {
+  text-align: center;
 }
 #tentativas {
-    margin: 12px 0;
-    text-align: center;
-    font-size: 14px;
+  margin: 12px 0;
+  text-align: center;
+  font-size: 14px;
 }
 .game {
-    width: 400px;
-    margin: 10px;
-    background-color: #ffb0be;
-    border-radius: 8px;
-    padding: 30px;
-    min-height: 500px;
+  width: 400px;
+  margin: 10px;
+  background-color: #ffb0be;
+  border-radius: 8px;
+  padding: 30px;
+  min-height: 500px;
 }
-.box2{
-	background-color: #ffb0be;
-	padding: 15px;
-	border-radius: 8px;
+.box2 {
+  background-color: #ffb0be;
+  padding: 15px;
+  border-radius: 8px;
 }
-#questao{
-	margin:16px 0;
-	text-align: justify;
-	font-weight: 100;
+#questao {
+  margin: 16px 0;
+  text-align: justify;
+  font-weight: 100;
 }
-#block{
-	margin: 16px 0;
+#block {
+  margin: 16px 0;
 }
-input{
-	border: none;
-	border-radius: 4px;
-	outline: none;
-	padding: 3px;
-	width:100%;
-	height: 35px;
+input {
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  padding: 3px;
+  width: 100%;
+  height: 45px;
 }
-#btn{
-	border: inherit;
-	padding: 3px;
-	border-radius: 3px;
-	width:40px;
-	height: 35px;
-	cursor: pointer;
-	margin: 16px 0;
+#btn {
+    border: inherit;
+    padding: 8px 50px;
+    border-radius: 12px;
+    /* width: 50%; */
+    font-size: 1rem;
+    /* height: 45px; */
+    cursor: pointer;
+    margin: 16px 0;
+	background: #f46c84;
+}
+.boxbutton{
+	width: 100%;
+	display: flex;
+	justify-content: center;
 }
