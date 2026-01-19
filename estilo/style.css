@@ -51,7 +51,7 @@ nav {
 }
 .modal-content {
   background-color: #ffb0be;
-  padding: 30px;
+  padding: 65px 45px;
   border-radius: 10px;
   max-width: 500px;
   position: relative;
@@ -70,6 +70,8 @@ nav {
 }
 .fechar:hover {
   color: #000;
+  transform: scale(1.2);
+  transition: 0.1s;
 }
 /*inicio da estilização do game*/
 main {
@@ -131,4 +133,11 @@ input {
 	width: 100%;
 	display: flex;
 	justify-content: center;
+}
+.comojogartitulo{
+  margin: 12px 0;
+}
+.cjcampos{
+  margin: 3px 0;
+  font-weight: 100;
 }
