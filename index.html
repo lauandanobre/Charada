@@ -7,19 +7,23 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head> 
 <body>
+	<nav></nav>
 	<main>
 		<div class="game">
 			<div class="box">
 				<h2 id="titulo"></h2>
 				<h4 id="questao">Descubra as respostas das advinhas, digite "ok" para começar</h4>
 			</div>
-			<div id="tent">
+			<div id="block">
+				<div id="tent">
 				<h6 id="tentativas"></h6>
 			</div>
 			<div>
 				<input type="text" name="resposta" autocomplete="off">
 				<button id="btn" onclick="iniciar()">click</button>
 			</div>
+			</div>
+			
 			<div>
 				<h5 id="tituloDica"></h5>
 				<p id="dica"></p>
