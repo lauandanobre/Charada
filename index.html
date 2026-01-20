@@ -3,24 +3,35 @@
   <head>
     <meta charset="utf-8" />
     <title>Charada</title>
-    <link rel="stylesheet" href="estilo/style.css" />
+    <link rel="stylesheet" href="style/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
-    <nav>
-      <button id="btnHow" onclick="abrirComoJogar()">Como jogar?</button>
-      <div id="modal" class="modal hidden">
-        <div class="modal-content">
-          <button id="fecharModal" onclick="fecharComoJogar()" class="fechar">
-            &times;
-          </button>
-          <h2 class="comojogartitulo">Como jogar?</h2>
-          <h5 class="cjcampos">- Digite a resposta da advinha no campo ao lado</h5>
-          <h5 class="cjcampos">- A cada dia uma nova adivinha será gerada</h5>
-          <h5 class="cjcampos">- Dicas aparecem conforme a dificuldade da charada</h5>
-        </div>
+    <header id="header">
+      <div>
+        <h1 id="jogonome">Charada</h1>
       </div>
-    </nav>
+      <nav >
+        <button id="btnHow" onclick="abrirComoJogar()">?</button>
+        <div id="modal" class="modal hidden">
+          <div class="modal-content">
+            <button id="fecharModal" onclick="fecharComoJogar()" class="fechar">
+              &times;
+            </button>
+            <h2 class="comojogartitulo">Como jogar?</h2>
+            <h5 class="cjcampos">
+              - Digite a resposta da advinha no campo ao lado
+            </h5>
+            <h5 class="cjcampos">- A cada dia uma nova adivinha será gerada</h5>
+            <h5 class="cjcampos">
+              - Dicas aparecem conforme a dificuldade da charada
+            </h5>
+          </div>
+        </div>
+      </nav>
+      
+    </header>
+
     <main>
       <div class="game">
         <div class="box">
@@ -29,7 +40,9 @@
         </div>
         <div id="block">
           <div id="tent">
-            <h6 id="tentativas"></h6>
+            <h6 id="tentativas">
+              Tentativas: <span id="numerotentativas"></span>
+            </h6>
           </div>
           <div>
             <input type="text" name="resposta" autocomplete="off" />

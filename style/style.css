@@ -1,6 +1,10 @@
 @font-face {
   font-family: "poppins";
-  src: url("poppins.ttf");
+  src: url("../fonts/poppins.ttf");
+}
+@font-face {
+  font-family: "barriecito";
+  src: url("../fonts/Barriecito.ttf");
 }
 * {
   margin: 0;
@@ -8,24 +12,27 @@
   box-sizing: border-box;
   font-family: "poppins", sans-serif;
   text-transform: capitalize;
+  cursor: default;
+}
+::selection {
+  background-color: #f46c84;
+  color: rgb(255, 255, 255);
+}   
+#jogonome{
+  font-family: "barriecito", sans-serif;
 }
 body {
   background-color: pink;
 }
-nav {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  z-index: 10;
-}
 #btnHow {
   background-color: #ffb0be;
   border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
+  padding: 7px 15px;
+  border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
   transition: 0.3s;
+  font-size: 1rem;
 }
 #btnHow:hover {
   background-color: #ff99aa;
@@ -76,10 +83,22 @@ nav {
 /*inicio da estilização do game*/
 main {
   width: 100vw;
-  height: 100vh;
+  height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+#header{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 12px 0;
+  justify-content: center;
+}
+nav{
+  position: fixed;
+  top: 12px;
+  right: 30px;
 }
 #titulo {
   text-align: center;
@@ -88,6 +107,10 @@ main {
   margin: 12px 0;
   text-align: center;
   font-size: 14px;
+}
+#numerotentativas{
+  font-weight: 800;
+  font-size: 1.05rem;
 }
 .game {
   width: 400px;

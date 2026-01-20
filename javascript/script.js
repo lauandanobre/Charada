@@ -245,7 +245,7 @@ function iniciarJogo() {
     jogoIniciou = true;
     document.getElementById("titulo").innerHTML = "O que é, o que é?";
     questao.innerHTML = advinha[i];
-    document.getElementById("tentativas").innerHTML = "Tentativas: 0";
+    document.getElementById("numerotentativas").innerHTML = "0";
     let dica = document.getElementById("dica");
     let dica2 = document.getElementById("dica2");
     let dica3 = document.getElementById("dica3");
@@ -276,7 +276,7 @@ function iniciar() {
   let erro = document.querySelector("#erro");
   let acertou = document.querySelector("#acertou");
   let errou = document.querySelector("#errou");
-  let tent = document.querySelector("#tentativas");
+  let tent = document.querySelector("#numerotentativas");
   let titulo = document.getElementById("titulo");
   let dica = document.getElementById("dica");
   let dica2 = document.getElementById("dica2");
@@ -289,7 +289,7 @@ function iniciar() {
     //adicionar o painel principal
     titulo.innerHTML = "O que é, o que é?";
     questao.innerHTML = advinha[i];
-    tent.innerHTML = "Tentativas: 0";
+    tent.innerHTML = "0";
   }
 
   if (jogoIniciou == true) {
@@ -323,7 +323,7 @@ function iniciar() {
         errou.innerHTML = "";
         erro.style.display = "none";
         errou.style.display = "none";
-        tent.innerHTML = "Tentativas: " + (tentativas - 1);
+        tent.innerHTML = tentativas - 1;
         document.querySelector("input").disabled = true;
         document.getElementById("btn").disabled = true;
         document.querySelector("input").value = usuario;
@@ -349,7 +349,7 @@ function iniciar() {
         errou.style.marginTop = "5px";
         errou.style.borderRadius = "3px";
         acertou.innerHTML = "";
-        tent.innerHTML = "Tentativas: " + (tentativas - 1);
+        tent.innerHTML = tentativas - 1;
       }
     }
   }
