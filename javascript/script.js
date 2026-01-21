@@ -227,7 +227,7 @@ let resposta = [
 ];
 window.addEventListener("keydown", (event) => {
   tecla = event.key;
-  if (tecla == "Enter" && zerarJogo == false) {
+  if (tecla == "Enter" && zerarJogo == false && temporizadorAtivo) {
     iniciar();
   }
 });
@@ -238,6 +238,71 @@ function abrirComoJogar() {
 }
 function fecharComoJogar() {
   document.getElementById("modal").classList.add("hidden");
+}
+function mostrarRespostaCorreta() {
+  // Criar elemento com a resposta
+  const respostaDiv = document.createElement("div");
+  respostaDiv.id = "respostaCorreta";
+  respostaDiv.innerHTML =
+    "Resposta Certa: <strong>" + resposta[i].toUpperCase() + "</strong>";
+  respostaDiv.style.cssText = `
+    position: absolute;
+    top: 0px;
+    left: 0;
+    background: #238cfd;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    animation: wiggle 0.3s ease-in-out 1;
+    z-index: 3;
+  `;
+
+  // Adicionar estilos de animação
+  const style = document.createElement("style");
+  style.innerHTML = `
+    @keyframes wiggle {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-15px); }
+      75% { transform: translateX(15px); }
+    }
+  `;
+  if (!document.querySelector("style[data-wiggle-animation]")) {
+    style.setAttribute("data-wiggle-animation", "true");
+    document.head.appendChild(style);
+  }
+
+  // Adicionar ao elemento do temporizador
+  const temporizadorCaixa = document.getElementById("temporizadorcaixa");
+  temporizadorCaixa.style.position = "relative";
+  temporizadorCaixa.appendChild(respostaDiv);
+}
+function iniciarTemporizador() {
+  tempoRestante = 180;
+  temporizadorAtivo = true;
+  const spanTempo = document.getElementById("temporizador");
+
+  // Atualizar a exibição inicial
+  spanTempo.innerHTML = tempoRestante + " s";
+
+  intervaloTemporizador = setInterval(() => {
+    tempoRestante--;
+    spanTempo.innerHTML = tempoRestante + " s";
+
+    // Se o tempo acabou
+    if (tempoRestante <= 0) {
+      clearInterval(intervaloTemporizador);
+      temporizadorAtivo = false;
+      zerarJogo = true;
+
+      // Desabilitar input e botão
+      document.querySelector("input").disabled = true;
+      document.getElementById("btn").disabled = true;
+
+      // Mostrar resposta correta
+      mostrarRespostaCorreta();
+    }
+  }, 1000);
 }
 function iniciarJogo() {
   if (cont == 0) {
@@ -253,6 +318,7 @@ function iniciarJogo() {
       "A primeira letra da palavra é " + resposta[i].substr(0, 1);
     dica2.innerHTML = "A ultima letra da palavra é " + resposta[i].slice(-1);
     dica3.innerHTML = "A palavra tem " + resposta[i].length + " letras";
+    iniciarTemporizador();
   }
 }
 //Iniciar o jogo quando a página carrega
@@ -290,9 +356,10 @@ function iniciar() {
     titulo.innerHTML = "O que é, o que é?";
     questao.innerHTML = advinha[i];
     tent.innerHTML = "0";
+    iniciarTemporizador();
   }
 
-  if (jogoIniciou == true) {
+  if (jogoIniciou == true && temporizadorAtivo == true) {
     document.querySelector("input").value = "";
     tentativas = tentativas + 1;
     //conferir se o usuario acertou
@@ -327,27 +394,29 @@ function iniciar() {
         document.querySelector("input").disabled = true;
         document.getElementById("btn").disabled = true;
         document.querySelector("input").value = usuario;
-        acertou.style.background = "#84df84d9";
-        acertou.style.padding = "2px";
+        acertou.style.background = "rgb(255 68 68);";
+        acertou.style.padding = "2px 10px";
         acertou.style.marginTop = "5px";
-        acertou.style.borderRadius = "3px";
+        acertou.style.borderRadius = "12px";
         zerarJogo = true;
+        clearInterval(intervaloTemporizador);
+        temporizadorAtivo = false;
       } else if (usuario == "") {
         errou.style.diplay = "none";
         erro.innerHTML = "Insira uma resposta valida";
         erro.style.background = "#ff3737";
-        erro.style.padding = "2px";
+        erro.style.padding = "2px 10px";
         erro.style.marginTop = "5px";
-        erro.style.borderRadius = "3px";
+        erro.style.borderRadius = "12px";
         tentativas = tentativas - 1;
         errou.innerHTML = "";
       } else {
         erro.style.display = "none";
         errou.innerHTML = "Resposta incorreta, tente novamente";
-        errou.style.background = "#ff7b7b";
-        errou.style.padding = "2px";
+        errou.style.background = "#fc3d3d";
+        errou.style.padding = "2px 10px";
         errou.style.marginTop = "5px";
-        errou.style.borderRadius = "3px";
+        errou.style.borderRadius = "12px";
         acertou.innerHTML = "";
         tent.innerHTML = tentativas - 1;
       }
