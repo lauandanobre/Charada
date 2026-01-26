@@ -1,2 +1,2 @@
 # Charada
-Um jogo de advinhar charadas com base em perguntas de o que é o que é
+Um jogo de adivinhar charadas com base em perguntas de o que é o que é
